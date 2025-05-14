@@ -5,7 +5,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def amplitude_modulation(A_sig=1, f_sig=5, phi_sig=0, SNR=0, f_ref=5, phi_ref=0):
+def amplitude_modulation(A_sig=1, f_sig=5, phi_sig=0, SNR=0, f_ref=5, phi_ref=0, integr = 200):
     # === input parameters ===
     # signal
     #A_sig = 1  # signal amplitude (V)
@@ -21,7 +21,7 @@ def amplitude_modulation(A_sig=1, f_sig=5, phi_sig=0, SNR=0, f_ref=5, phi_ref=0)
     # =================
 
     # Create signal and noisy baseline
-    x = np.arange(0, 2000 * 1 / f_sig, 0.1)  # time axis (s)
+    x = np.arange(0, integr*2*np.pi / f_sig, 0.1)  # time axis (s)
     noise = 1 / SNR * np.random.randn(len(x))  # noise
     baseline = noise + 40  # noise + baseline
     y = A_sig * (1 + np.sin(f_sig * x + phi_sig))  # pure signal
