@@ -29,7 +29,7 @@ class ParameterWindow(QDockWidget):
         self.phase = QDoubleSpinBox(minimum=0, maximum=10, value=1, singleStep=0.1, suffix="rad")
         self.SNR = QDoubleSpinBox(minimum=0.01, maximum=100, value=0.1, singleStep=0.1)
 
-        self.ref_f = QDoubleSpinBox(minimum=0, maximum=100, value=0, singleStep=0.1, suffix="rad/s")
+        self.ref_f = QDoubleSpinBox(minimum=0, maximum=10000, value=0, singleStep=0.1, decimals=3, suffix="rad/s")
         self.ref_phase = QDoubleSpinBox(minimum=0, maximum=100, value=0, singleStep=0.1, suffix="rad")
 
         for param in [self.A, self.f, self.phase, self.SNR, self.ref_f, self.ref_phase]:
